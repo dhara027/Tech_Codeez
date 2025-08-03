@@ -27,33 +27,33 @@ const NewsletterSection = () => {
   };
 
   return (
-    <section className="bg-noor-darkBrown text-white pt-16 pb-8">
+    <section className="bg-noor-darkBrown text-white py-12 sm:py-16 lg:py-20">
       <div className="container-width section-padding">
-        <div className="max-w-3xl mx-auto text-center text-white">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+        <div className="max-w-3xl mx-auto text-center text-white px-4">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">
             Stay Updated With Our Newsletter
           </h2>
-          <p className="text-lg text-gray-300 mb-8">
+          <p className="text-base sm:text-lg text-gray-300 mb-6 sm:mb-8">
            "Unlock tech industry secrets – actionable updates for IT leaders and teams."
           </p>
 
           <form
             onSubmit={handleSubmit}
-            className="flex flex-col sm:flex-row gap-3"
+            className="flex flex-col sm:flex-row gap-3 max-w-md sm:max-w-none mx-auto"
           >
             <Input
               type="email"
               placeholder="Your email address"
-              className="flex-grow bg-white bg-opacity-10 border-0 text-white placeholder:text-gray-400 focus:ring-agency-teal"
+              className="flex-grow bg-white bg-opacity-10 border-0 text-white placeholder:text-gray-400 focus:ring-noor-gold h-12"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
-            <Button className="bg-noor-gold hover:bg-opacity-90 whitespace-nowrap">
+            <Button className="bg-noor-gold hover:bg-opacity-90 whitespace-nowrap h-12 px-6">
               Subscribe Now
             </Button>
           </form>
 
-          <p className="text-sm text-gray-400 mt-4">
+          <p className="text-xs sm:text-sm text-gray-400 mt-4">
             We respect your privacy. Unsubscribe at any time.
           </p>
         </div>

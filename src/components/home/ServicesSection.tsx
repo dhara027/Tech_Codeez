@@ -12,7 +12,6 @@ import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const services = [
-  
   {
     icon: (
       <svg
@@ -32,6 +31,7 @@ const services = [
     ),
     title: "Web Development",
     description: "Build fast, secure, and scalable websites with modern technologies for optimal performance and user experience.",
+    image: "https://images.pexels.com/photos/270348/pexels-photo-270348.jpeg?auto=compress&cs=tinysrgb&w=800",
     features: [
       "Responsive Design",
       "Frontend Development (React, Vue, Angular)",
@@ -59,6 +59,7 @@ const services = [
     ),
     title: "Mobile App Development",
     description: "Create powerful native and cross-platform mobile applications that deliver seamless user experiences.",
+    image: "https://images.pexels.com/photos/607812/pexels-photo-607812.jpeg?auto=compress&cs=tinysrgb&w=800",
     features: [
       "iOS App Development (Swift)",
       "Android App Development (Kotlin)",
@@ -87,6 +88,7 @@ const services = [
     ),
     title: "UI/UX Design",
     description: "Create intuitive and visually stunning interfaces that enhance user engagement and satisfaction.",
+    image: "https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=800",
     features: [
       "User Research",
       "Wireframing & Prototyping",
@@ -114,6 +116,7 @@ const services = [
     ),
     title: "E-commerce Development",
     description: "Build powerful online stores with seamless checkout experiences and integrated payment solutions.",
+    image: "https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=800",
     features: [
       "Shopify Development",
       "WooCommerce Solutions",
@@ -141,6 +144,7 @@ const services = [
     ),
     title: "Data Analytics",
     description: "Transform raw data into actionable insights to drive business decisions and marketing strategies.",
+    image: "https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=800",
     features: [
       "Dashboard Development",
       "KPI Tracking",
@@ -168,6 +172,7 @@ const services = [
     ),
     title: "Web Scraping",
     description: "Automate data collection from websites to gather market intelligence and competitive insights.",
+    image: "https://images.pexels.com/photos/1181263/pexels-photo-1181263.jpeg?auto=compress&cs=tinysrgb&w=800",
     features: [
       "Custom Scraping Solutions",
       "Data Cleaning & Processing",
@@ -180,48 +185,67 @@ const services = [
 
 const ServicesSection = () => {
   return (
-    <section className="py-20 bg-noor-lightGray">
+    <section className="py-12 sm:py-16 lg:py-20 bg-noor-lightGray">
       <div className="container-width section-padding">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-noor-brown">
+        <div className="text-center mb-12 lg:mb-16">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 text-noor-brown">
             Our Services
           </h2>
-          <div className="w-20 h-1 bg-noor-gold mx-auto mb-6"></div>
-          <p className="text-gray-600 max-w-2xl mx-auto">
+          <div className="w-16 sm:w-20 h-1 bg-noor-gold mx-auto mb-4 sm:mb-6"></div>
+          <p className="text-sm sm:text-base lg:text-lg text-gray-600 max-w-2xl mx-auto px-4">
             We deliver cutting-edge technology solutions engineered to accelerate your business growth and enhance customer engagement.
-            Here’s how we can supercharge your success:
+            Here's how we can supercharge your success:
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {services.map((service, index) => (
             <Card
               key={index}
-              className="border shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col"
+              className="border shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col overflow-hidden group"
             >
-              <CardHeader>
-                <div className="mb-4">{service.icon}</div>
-                <CardTitle className="text-xl font-bold text-noor-brown">
+              {/* Service Image */}
+              <div className="relative h-48 sm:h-52 lg:h-56 overflow-hidden">
+                <img
+                  src={service.image}
+                  alt={service.title}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm p-2 rounded-lg">
+                  {service.icon}
+                </div>
+              </div>
+
+              <CardHeader className="pb-2 px-4 sm:px-6">
+                <CardTitle className="text-lg sm:text-xl font-bold text-noor-brown">
                   {service.title}
                 </CardTitle>
-                <CardDescription className="text-gray-600">
+                <CardDescription className="text-sm sm:text-base text-gray-600 line-clamp-3">
                   {service.description}
                 </CardDescription>
               </CardHeader>
-              <CardContent className="flex-grow">
+
+              <CardContent className="flex-grow px-4 sm:px-6">
                 <ul className="space-y-2">
-                  {service.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-center">
-                      <span className="w-2 h-2 bg-noor-gold rounded-full mr-2"></span>
-                      {feature}
+                  {service.features.slice(0, 4).map((feature, featureIndex) => (
+                    <li key={featureIndex} className="flex items-start text-sm">
+                      <span className="w-1.5 h-1.5 bg-noor-gold rounded-full mr-2 mt-2 flex-shrink-0"></span>
+                      <span className="text-gray-700">{feature}</span>
                     </li>
                   ))}
+                  {service.features.length > 4 && (
+                    <li className="text-sm text-noor-gold font-medium">
+                      +{service.features.length - 4} more features
+                    </li>
+                  )}
                 </ul>
               </CardContent>
-              <CardFooter>
+
+              <CardFooter className="px-4 sm:px-6 pt-4">
                 <Link
                   to="/services"
-                  className="text-noor-gold font-medium flex items-center hover:text-opacity-80 transition-base"
+                  className="text-noor-gold font-medium flex items-center hover:text-noor-brown transition-colors duration-200 text-sm sm:text-base"
                 >
                   Learn more <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
@@ -230,10 +254,10 @@ const ServicesSection = () => {
           ))}
         </div>
 
-        <div className="text-center mt-12">
-            <Button asChild className="bg-noor-brown hover:bg-opacity-90 px-8">
-              <Link to="/services">View All Services</Link>
-            </Button>
+        <div className="text-center mt-8 sm:mt-12">
+          <Button asChild className="bg-noor-brown hover:bg-noor-darkBrown px-6 sm:px-8 py-2 sm:py-3 text-sm sm:text-base">
+            <Link to="/services">View All Services</Link>
+          </Button>
         </div>
       </div>
     </section>

@@ -5,9 +5,9 @@ import { Link } from "react-router-dom";
 
 const HeroSection = () => {
   return (
-    <section className="bg-gradient-to-r from-noor-brown to-noor-darkBrown py-20 md:py-32 relative">
+    <section className="bg-gradient-to-r from-noor-brown to-noor-darkBrown py-16 sm:py-20 lg:py-32 relative overflow-hidden">
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute right-0 bottom-0 w-1/2 h-full">
+        <div className="absolute right-0 bottom-0 w-1/2 h-full hidden lg:block">
            <svg
         width="600"
         height="600"
@@ -25,14 +25,14 @@ const HeroSection = () => {
       </div>
 
       <div className="container-width section-padding relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className="text-white max-w-xl">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 animate-fade-in">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+          <div className="text-white max-w-xl mx-auto lg:mx-0 text-center lg:text-left">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4 sm:mb-6 animate-fade-in">
               Your Vision ;{" "}
               <span className="text-noor-beige">Our Technology </span>
             </h1>
             <p
-              className="text-lg md:text-xl text-noor-lightGray mb-8 animate-fade-in"
+              className="text-base sm:text-lg md:text-xl text-noor-lightGray mb-6 sm:mb-8 animate-fade-in"
               style={{ animationDelay: "0.2s" }}
             >
               We create cutting-edge digital strategies that not only empower
@@ -41,20 +41,20 @@ const HeroSection = () => {
               that elevate your business to new heights.
             </p>
             <div
-              className="flex flex-col sm:flex-row gap-4 animate-fade-in"
+              className="flex flex-col sm:flex-row gap-3 sm:gap-4 animate-fade-in justify-center lg:justify-start"
           
               style={{ animationDelay: "0.4s" }}
               
             >
               <Button 
                  variant="outline"
-                className="bg-transparent border-white text-white hover:bg-white hover:text-noor-darkBrown px-8 py-6 text-lg"
+                className="bg-transparent border-white text-white hover:bg-white hover:text-noor-darkBrown px-6 sm:px-8 py-3 sm:py-6 text-base sm:text-lg"
               >
                <Link to="/Contact">get started</Link>
               </Button>
               <Button
                 variant="outline"
-                className="bg-transparent border-white text-white hover:bg-white hover:text-noor-darkBrown px-8 py-6 text-lg"
+                className="bg-transparent border-white text-white hover:bg-white hover:text-noor-darkBrown px-6 sm:px-8 py-3 sm:py-6 text-base sm:text-lg"
               >
                  <Link to="/Services">Our Services</Link>
               </Button>
@@ -62,7 +62,7 @@ const HeroSection = () => {
           </div>
 
           <div className="hidden lg:block">
-            <div className="relative">
+            <div className="relative mt-8 lg:mt-0">
               <div className="absolute -left-8 -top-8 w-64 h-64 bg-noor-beige rounded-lg opacity-20 animate-pulse"></div>
               <img
                 src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80"

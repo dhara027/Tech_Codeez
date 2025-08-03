@@ -29,24 +29,24 @@ const Header = () => {
   return (
     <header
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        isScrolled ? "bg-white shadow-md py-3" : "bg-transparent py-6"
+        isScrolled ? "bg-white shadow-md py-2 sm:py-3" : "bg-transparent py-4 sm:py-6"
       }`}
     >
       <div className="container-width section-padding flex justify-between items-center">
         <NavLink to="/" className="flex items-center">
-          <span className="font-montserrat font-bold text-2xl text-noor-brown">
+          <span className="font-montserrat font-bold text-xl sm:text-2xl text-noor-brown">
           Tech <span className="text-noor-gold">Codeez</span>
           </span>
         </NavLink>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-8">
+        <nav className="hidden lg:flex items-center space-x-6 xl:space-x-8">
           <NavLink
             to="/"
             className={({ isActive }) =>
               isActive
                 ? "font-medium text-noor-gold"
-                : "font-medium text-gray-700 hover:text-noor-gold transition-base"
+                : "font-medium text-gray-700 hover:text-noor-gold transition-base text-sm xl:text-base"
             }
           >
             Home
@@ -56,7 +56,7 @@ const Header = () => {
             className={({ isActive }) =>
               isActive
                 ? "font-medium text-noor-gold"
-                : "font-medium text-gray-700 hover:text-noor-gold transition-base"
+                : "font-medium text-gray-700 hover:text-noor-gold transition-base text-sm xl:text-base"
             }
           >
             About
@@ -66,7 +66,7 @@ const Header = () => {
             className={({ isActive }) =>
               isActive
                 ? "font-medium text-noor-gold"
-                : "font-medium text-gray-700 hover:text-noor-gold transition-base"
+                : "font-medium text-gray-700 hover:text-noor-gold transition-base text-sm xl:text-base"
             }
           >
             Services
@@ -76,7 +76,7 @@ const Header = () => {
             className={({ isActive }) =>
               isActive
                 ? "font-medium text-noor-gold"
-                : "font-medium text-gray-700 hover:text-noor-gold transition-base"
+                : "font-medium text-gray-700 hover:text-noor-gold transition-base text-sm xl:text-base"
             }
           >
             Blog
@@ -86,7 +86,7 @@ const Header = () => {
             className={({ isActive }) =>
               isActive
                 ? "font-medium text-noor-gold"
-                : "font-medium text-gray-700 hover:text-noor-gold transition-base"
+                : "font-medium text-gray-700 hover:text-noor-gold transition-base text-sm xl:text-base"
             }
           >
             Contact
@@ -95,7 +95,7 @@ const Header = () => {
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden text-noor-brown"
+          className="lg:hidden text-noor-brown p-2"
           onClick={toggleMenu}
           aria-label="Toggle menu"
         >
@@ -105,7 +105,7 @@ const Header = () => {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 w-full bg-white shadow-md py-4 px-6">
+        <div className="lg:hidden absolute top-full left-0 w-full bg-white shadow-md py-4 px-6">
           <nav className="flex flex-col space-y-4">
             <NavLink
               to="/"
